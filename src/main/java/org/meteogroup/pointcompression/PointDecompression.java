@@ -53,10 +53,8 @@ public class PointDecompression {
         double lon = lonX + lastLon;
         lastLat = lat;
         lastLon = lon;
-        lat /= PointConstants.MULTIPLIER;
-        lon /= PointConstants.MULTIPLIER;
 
-        latLon.add(new Point((float) lat, (float) lon));
+        latLon.add(new Point((int) lat, (int) lon));
 
       }
     } catch (Exception ex) {

@@ -1,20 +1,26 @@
 package org.meteogroup.pointcompression;
 
-import org.meteogroup.pointcompression.Point;
-import org.testng.annotations.DataProvider;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+import org.testng.annotations.DataProvider;
 
 public abstract class BasePointTest {
 
   @DataProvider
   public Object[][] arrayOfPoints() {
-    return new Object[][] {
-        {new ArrayList<>(Arrays.asList(new Point(52.1161994934082f, 13.787839889526367f), new Point(39.94520950317383f, 15.137619972229004f))),
-         "s9t5rilgvC6y0rgktqD"},
-        {new ArrayList<>(Arrays.asList(new Point(83.45456f, 57.75121f), new Point(12.77555f, 91.15116f)))
-            , "j7-wuki2qLh17tv3phlG"}
+    return new Object[][]{
+        {new ArrayList<>(Arrays.asList(
+            new Point(toInt(52.1161994934082f), toInt(13.787839889526367f)),
+            new Point(toInt(39.94520950317383f), toInt(15.137619972229004f))
+        )), "3qm5r35v82H6i39zsgxsK"},
+        {new ArrayList<>(Arrays.asList(
+            new Point(toInt(83.45456f), toInt(57.75121f)),
+            new Point(toInt(12.77555f), toInt(91.15116f))
+        )), "mylnjpy_stjByoss0uti4nT"}
     };
+  }
+
+  private static int toInt(float f) {
+    return (int) Math.round(f * 1e6);
   }
 }

@@ -15,8 +15,8 @@ public class PointCompression {
     StringBuilder result = new StringBuilder();
     try {
       for (Point point : points) {
-        long newLat = Math.round(point.getLat() * PointConstants.MULTIPLIER);
-        long newLon = Math.round(point.getLon() * PointConstants.MULTIPLIER);
+        long newLat = point.getLat();
+        long newLon = point.getLon();
         long dy = newLat - latitude;
         long dx = newLon - longitude;
         latitude = newLat;
